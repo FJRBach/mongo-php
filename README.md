@@ -44,6 +44,10 @@ nmap -p 27017 localhost
 ```bash 
 netstat -a -n -o | findstr :27017
 ```
+# En caso de no tener iniciado mongo y que mongod no mantenga la ejecución del servidor (servicio) #
+## NonExistentePath: Data directory C:\data\db not found. Create the missing directory or specify another path using... ##
+### Se debe verificar que exista una carpeta *data* en C:\ ### 
+### De modo que exista el directorio C:\data\db y después se podrá ejecutar 'mongod' (manteniendo en ejecución). ###
 #
 # Utilizando la GUI de MongoDB-Compass # 
 ### Primero creamos la conexión y después utilizando el Shell de MongoDB, creamos una base de datos llamada bachur ###
