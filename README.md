@@ -6,7 +6,8 @@
 - mongoDB 1.20.0 dll
 #
 # En el directiorio de C:\xampp\php\ext #
-## Habilitamos extension=php_mongodb.dll en el directorio del php, en esta práctica fue ' C:\xampp\php ' ##
+## Habilitamos (en el directorio del php): extension=php_mongodb.dll ##
+## en esta práctica fue ' C:\xampp\php\php.ini ' ##
 ### Se encuentra (8.2 Thread Safe (TS) x64) para descargar en: https://pecl.php.net/package/mongodb/1.20.0/windows ###
 ### Para poder cargar correctamente la extensión que ocupa php para mongoDB ###
 
