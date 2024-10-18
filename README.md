@@ -52,9 +52,6 @@ netstat -a -n -o | findstr :27017
 # Utilizando la GUI de MongoDB-Compass # 
 ### Primero creamos la conexión y después utilizando el Shell de MongoDB, creamos una base de datos llamada bachur ###
 ![alt-text](img/bchr.png)
-## Al utilizar use bachur, se crea un id de tipo único ##
-```json
-db.users.createIndex({ idUser: 1 }, { unique: true })
-```
+
 ![alt-text](img/bd.png)
 # Al tener los pasos anteriores, tendremos las dependencias y base de datos requerida para la práctica a realizar con el código de php #
