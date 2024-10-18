@@ -9,6 +9,22 @@
 <body>
     <div class="container">
         <h1>Lista de Alumnos</h1>
+        <?php
+        require 'conectar.php';
+        $database = connectMongoDB();
+        $usersCollection = $database->users; // Selecciona la colección 'users'
+
+        // Manejar eliminación de usuario
+        if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['numeroControlEliminar'])) {
+            $numeroControlEliminar = $_POST['numeroControlEliminar'];
+            $usersCollection->deleteOne(['numeroControl' => $numeroControlEliminar]);
+            echo "<p>Usuario con número de control " . htmlspecialchars($numeroControlEliminar) . " eliminado.</p>";
+        }
+
+        $users = $usersCollection->find();
+        // Declarar que se utilizará la zona horaria de México
+        date_default_timezone_set('America/Mexico_City'); 
+        ?>
         <table>
             <thead>
                 <tr>
@@ -20,16 +36,7 @@
                 </tr>
             </thead>
             <tbody>
-            <!--Verificar zona horaria: https://www.php.net/manual/es/timezones.america.php -->
             <?php
-            require 'conectar.php';
-            $database = connectMongoDB();
-            $usersCollection = $database->users; // Selecciona la colección 'users'
-
-            $users = $usersCollection->find();
-            // Declarar que se utilizará la zona horaria de México
-            date_default_timezone_set('America/Mexico_City'); 
-
             foreach ($users as $user) {
                 echo "<tr>";
                 // Decodificar el ObjectId para mostrar la zona horaria
@@ -41,7 +48,14 @@
                 echo "<td>" . htmlspecialchars($user['nombre']) . "</td>";
                 echo "<td>" . htmlspecialchars($user['telefono']) . "</td>";
                 echo "<td>" . htmlspecialchars($user['numeroControl']) . "</td>";
-                echo "<td><a class='edit-button' href='edit.php?numeroControl=" . htmlspecialchars($user['numeroControl']) . "'>Editar</a></td>";
+                echo "<td>";
+                echo "<a class='edit-button' href='edit.php?numeroControl=" . htmlspecialchars($user['numeroControl']) . "'>Editar</a><br>";
+                echo " ";
+                echo "<form method='POST' action='' style='display:inline;'>";
+                echo "<input type='hidden' name='numeroControlEliminar' value='" . htmlspecialchars($user['numeroControl']) . "'>";
+                echo "<input class='delete-button' type='submit' value='Eliminar' onclick=\"return confirm('¿Está seguro de que desea eliminar este usuario?');\">";
+                echo "</form>";
+                echo "</td>";
                 echo "</tr>";
             }
             ?>

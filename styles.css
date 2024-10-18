@@ -30,7 +30,6 @@ label {
 }
 
 input[type="text"], input[type="submit"] {
-    
     margin-bottom: 15px;
     padding: 8px;
     font-size: 22px;
@@ -112,4 +111,24 @@ th {
 
 .edit-button:hover {
     background-color: #ec971f;
+}
+
+.delete-button {
+    background-color: red !important;
+    color: white !important;
+    font-size: 16px !important;
+    border: none !important;
+    padding: 5px 10px !important;
+    text-decoration: none !important;
+    border-radius: 4px !important;
+    cursor: pointer !important;  
+}
+
+.delete-button:hover {
+    background-color: #ff622e !important;
+}
+
+td .edit-button, td .delete-button {
+    display: block;
+    margin-bottom: 5px; /* Espacio entre botones */
 }
