@@ -1,6 +1,5 @@
 <?php
-require 'vendor/autoload.php'; // Asegúrate de que la ruta a autoload.php sea correcta
-
+require 'vendor/autoload.php';
 function connectMongoDB() {
     $uri = "mongodb://localhost:27017"; // Cambia si es necesario
     $client = new MongoDB\Client($uri);
