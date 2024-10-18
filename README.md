@@ -53,5 +53,4 @@ netstat -a -n -o | findstr :27017
 ### Primero creamos la conexión y después utilizando el Shell de MongoDB, creamos una base de datos llamada bachur ###
 ![alt-text](img/bchr.png)
 
-![alt-text](img/bd.png)
 # Al tener los pasos anteriores, tendremos las dependencias y base de datos requerida para la práctica a realizar con el código de php #
