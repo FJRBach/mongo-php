@@ -1,0 +1,54 @@
+# Práctica de crear, listar y modificar datos en MongoDB con PHP #
+## Se requirió de: 
+- php version 8.2.4 
+- composer version 2.7.1
+- mongoDB version 8.0.1
+- mongoDB 1.20.0 dll
+#
+# En el directiorio de C:\xampp\php\ext #
+## Habilitamos extension=php_mongodb.dll ##
+### Para poder cargar correctamente la extensión que ocupa php para mongoDB ###
+
+### La configuración usada para composer en esta práctica fue:
+```json
+{
+    "name": "vendorfjrb/mdbphp",
+    "description": "MongoDBdll1.20-con-php8.2.4",
+    "require": {
+        "mongodb/mongodb": "^1.20"
+    },
+    "authors": [
+        {
+            "name": "FJRBach",
+            "email": "paquiuxtp@gmail.com"
+        }
+    ]
+}
+```
+### Para construir se debe ejecutar el siguiente comando en la terminal: ###
+```bash 
+composer init 
+```
+### El ejemplo de configuración se muestra en:
+![alt-text](img/cominit.png)
+### Se confirma la generación e instalación ### 
+![alt-text](img/confirm.png)
+## Opcional ##
+### Se puede escanear el puerto de escucha que utiliza mongoDB para confirmar que está escuchando y podrá ejecutarse sin ese problema la aplicación ###
+```bash 
+nmap -p 27017 localhost
+```
+### O usar para cmd nativo ###
+```bash 
+netstat -a -n -o | findstr :27017
+```
+#
+# Utilizando la GUI de MongoDB-Compass # 
+### Primero creamos la conexión y después utilizando el Shell de MongoDB, creamos una base de datos llamada bachur ###
+![alt-text](img/bchr.png)
+## Al utilizar use bachur, se crea un id de tipo único ##
+```json
+db.users.createIndex({ idUser: 1 }, { unique: true })
+```
+![alt-text](img/bd.png)
+# Al tener los pasos anteriores, tendremos las dependencias y base de datos requerida para la práctica a realizar con el código de php #

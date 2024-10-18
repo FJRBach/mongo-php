@@ -1,0 +1,13 @@
+{
+    "name": "vendorfjrb/mdbphp",
+    "description": "MongoDBdll1.20-con-php8.2.4",
+    "require": {
+        "mongodb/mongodb": "^1.20"
+    },
+    "authors": [
+        {
+            "name": "FJRBach",
+            "email": "paquiuxtp@gmail.com"
+        }
+    ]
+}
